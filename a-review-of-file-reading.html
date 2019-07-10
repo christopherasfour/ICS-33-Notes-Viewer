@@ -89,6 +89,7 @@
 					<li><h4><a href="#Simple and Space Efficient Code">Simple and Space Efficient Code</a></h4></li>
 					<li><h4><a href="#readlines()">The .readlines() and .read() methods: Less Simple and Less Efficient</a></h4></li>
 					<li><h4><a href="#Parsing">Reading Files and Parsing their Contents</a></h4></li>
+					<li><h4><a href="#Problems">Problems</a></h4></li>
 				</ul>
 		</div>
 
@@ -447,12 +448,58 @@
 	['Mary Jones', [85, 90, 77], 85]</p>
 		</pre>
 		<hr>
-		</div>
 
+		<a name = "Problems"><h2>Problems:</h2>
+		<pre style="word-wrap: break-word; white-space: pre-wrap;">
+	1) Suppose that we want to process the lower case version of every word on
+	every line (where the words on a line are separated by spaces) in a file named
+	file.txt. Which of the following code fragments correctly does so? For those
+	that don't, explain why they fail. For example, if the file contained the three
+	lines:
 
+	  See spot
+	  See spot run
+	  Run spot run
 
+	it should process the following words in the following order:
+	  'see', 'spot', 'see', 'spot', 'run', 'run', 'spot', 'run'.
 
+	for line in open('file.txt'):
+	    for word in line.rstrip().lower().split():
+	        process(word)  
+
+	for line in open('file.txt'):
+	    for word in line.rstrip().split().lower():
+	        process(word)  
+
+	for line in open('file.txt'):
+	    for word in line.lower().rstrip().split():
+	        process(word)  
+
+	for line in open('file.txt'):
+	    for word in line.lower().split().rstrip():
+	        process(word)  
+
+	for line in open('file.txt'):
+	    for word in line.split().rstrip().lower():
+	        process(word)  
+
+	for line in open('file.txt'):
+	    for word in line.split().lower().rstrip():
+	        process(word)  
+
+	for word in open('file.txt').read().lower().split('\n'):
+	    process(word)  
+
+	for word in open('file.txt').read().split('\n').lower():
+	    process(word)
+
+	</pre>
+</a>
+</a>
+</a>
+</a>
+</div>
+</div>
 </body>
 </html>
-
-		
